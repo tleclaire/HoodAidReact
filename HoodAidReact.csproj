@@ -19,6 +19,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.8.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
@@ -30,7 +34,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\App.test.tsx" />
+    <None Remove="ClientApp\src\App.tsx" />
+    <None Remove="ClientApp\src\components\Counter.tsx" />
+    <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\Home.tsx" />
+    <None Remove="ClientApp\src\components\Layout.tsx" />
+    <None Remove="ClientApp\src\components\NavMenu.tsx" />
+    <None Remove="ClientApp\src\index.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\Counter.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
